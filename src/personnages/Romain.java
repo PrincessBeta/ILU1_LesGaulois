@@ -40,7 +40,7 @@ public class Romain {
 			break;
 		}
 		case 1:{
-			if (equipements[0] == equipement) {
+			if (equipements[0] == equipement || equipements[1] == equipement) {
 				System.out.println("le soldat "+nom+" a déjà un "+equipement);
 			}
 			else {
@@ -54,10 +54,14 @@ public class Romain {
 		}
 	}
 	private void equipe(Equipement equipement) {
-		equipements[0] = equipement;
+		if (nbEquipements != 2) {
+		if (equipements[0]==null)
+			equipements[0] = equipement;
+		else
+			equipements[1] = equipement;
 		nbEquipements++;
 		System.out.println("le soldat "+nom+" s'equipe avec un "+equipement);
-
+		}
 	}
 	
 	public static void main(String[] args) {
