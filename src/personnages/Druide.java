@@ -5,7 +5,9 @@ public class Druide {
 	private String nom;
 	private int effetPotionMin;
 	private int effetPotionMax;
-	private int forcePotion = 1;
+	public int forcePotion = 1;
+	Random random = new Random();
+	
 	public Druide(String nom, int effetPotionMin, int effetPotionMax) {
 		this.nom = nom;
 		this.effetPotionMin = effetPotionMin;
@@ -25,13 +27,14 @@ public class Druide {
 	}
 	
 	public int preparerPotion() {
-		Random random = new Random();
+
 		int effet = random.nextInt(effetPotionMax-effetPotionMin)+effetPotionMin;
 		if (effet>7)
 			System.out.println("j'ai préparé une super potion de force" + effet);
 		else
 			System.out.println("Je n'ai pas trouvé tous les ingrédients, ma potion est seulement de force "+ effet);
-		return effet;		
+		forcePotion = effet;
+		return effet;
 	}
 	
 	public void booster(Gaulois gaulois) {
